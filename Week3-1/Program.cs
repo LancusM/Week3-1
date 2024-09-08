@@ -9,7 +9,9 @@ namespace Week3_1
     internal class Program
     {
         //Function converting INTO USD
-        static void ConvertToUSD(double amount, string fromCurrency)
+
+        //EDIT: Changed the static void to public static double because that's right, I think. Not sure what it does outside of being correct syntax-wise.
+        public static double ConvertToUSD(double amount, string fromCurrency)
         {
             //Checks if from EUR or JPY
             //I used Google's stock result for exchange rates, and tried to adhere well. It is, admittedly, not perfect to the decimal.
@@ -22,8 +24,9 @@ namespace Week3_1
                 amount = (amount / 1000) * 7.03;
             }
             Console.WriteLine("Your amount in USD is: " + amount);
+            return amount;
         }
-        static void ConvertToEUR(double amount, string fromCurrency)
+        public static double ConvertToEUR(double amount, string fromCurrency)
         {
             //Same as the others. Learned that the conversion is reversed when going the other way, which makes a lot of sense in hindsight!
             if (fromCurrency == "USD")
@@ -35,8 +38,9 @@ namespace Week3_1
                 amount = (amount / 1000) * 6.33;
             }
             Console.WriteLine("Your amount in EUR is: " + amount);
+            return amount;
         }
-        static void ConvertToJPY(double amount, string fromCurrency)
+        public static double ConvertToJPY(double amount, string fromCurrency)
         {
             if (fromCurrency == "USD")
             {
@@ -47,6 +51,7 @@ namespace Week3_1
                 amount = (amount / 6.33) * 1000;
             }
             Console.WriteLine("Your amount in JPY is: " + amount);
+            return amount;
         }
 
         static void Main(string[] args)
